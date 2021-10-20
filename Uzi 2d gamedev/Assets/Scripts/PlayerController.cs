@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float yRange = 4.5f;
 
     public GameObject projectile;
-    public transform firePoint;
+    public Transform firePoint;
     
     // Update is called once per frame
     void Update()
@@ -28,22 +28,22 @@ public class PlayerController : MonoBehaviour
         //Creates wall on the left side
         if(transform.position.x > xRange)
         {
-            transform.position = new Vector3(xRange.transform.position.y,transform.position.z);
+            transform.position = new Vector3(xRange,transform.position.y,transform.position.z);
         }
         //Right wall
         if(transform.position.x < -xRange)
         {
-            transform.position = new Vector3(-xRange.transform.position.y,transform.position.z);
+            transform.position = new Vector3(-xRange,transform.position.y,transform.position.z);
         }
         //Top wall
         if(transform.position.x > yRange)
         {
-            transform.position = new Vector3(xRange.transform.position.x, yRange, transform.position.z);
+            transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
         }
         //Bottom wall
         if(transform.position.x < -yRange)
         {
-            transform.position = new Vector3(xRange.transform.position.x, -yRange, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -yRange, transform.position.z);
         }
         //Hit spacebar is shoot projectile
         if(Input.GetKeyDown(KeyCode.Space))

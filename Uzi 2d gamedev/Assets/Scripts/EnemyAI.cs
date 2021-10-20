@@ -7,9 +7,7 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public float moveSpeed;
     private Rigidbody2D rb;
-    private Vector2 movement
-
-
+    private Vector2 movement;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +24,20 @@ public class EnemyAI : MonoBehaviour
         direction.Normalize();
         movement = direction;
     } 
+    //Occures at a fixed rate per frame
+    void FixedUpdate()
+    {
+        MoveEnemy(movmeent);
+    }
 
-
+    void MoveEnemy(Vector2 direction)
+    {
+        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+    }
     
     void OntTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject,CompareTag("Projectile"))
+        if(other.gameObject.CompareTag("Projectile"))
         {
             Destroy(gameObject);
         }
