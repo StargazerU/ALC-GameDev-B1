@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveFoward : MonoBehaviour
 {
     public float spped = 25.0f;
+    
     void Update()
     {
 
