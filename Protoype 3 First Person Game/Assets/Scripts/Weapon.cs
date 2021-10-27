@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject bulletProjectile;
+    public ObjectPool bulletPool;
     public Transform firepoint;
 
     public int curAmmo;
@@ -47,7 +47,9 @@ public class Weapon : MonoBehaviour
         lastShootTime = Time.time;
         curAmmo --;
         //Create projectile
-        GameObject bullet = Instantiate(bulletProjectile, firepoint.position, firepoint.rotation);
+        GameObject bullet = bulletPool.GetObject();
+        bullet.transform.position = firepoint.position;
+        bullet.transform.rotation = firepoint.rotation;
 
         //Velocity of bullet
         bullet.GetComponent<Rigidbody>().velocity = firepoint.forward * bulletSpeed;
