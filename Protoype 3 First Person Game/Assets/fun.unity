@@ -1457,6 +1457,7 @@ GameObject:
   - component: {fileID: 1460738565}
   - component: {fileID: 1460738564}
   - component: {fileID: 1460738563}
+  - component: {fileID: 1460738562}
   - component: {fileID: 1460738561}
   - component: {fileID: 1460738560}
   m_Layer: 0
@@ -1500,6 +1501,24 @@ MonoBehaviour:
   bulletSpeed: 30
   shootRate: 0.1
   lastShootTime: 0
+--- !u!114 &1460738562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460738559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af12c8557091f4feaa47e2faff34a121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHP: 10
+  maxHP: 10
+  ScoreToGive: 0
+  moveSpeed: 0.05
+  attackRange: 10
+  yPathOffset: 1
 --- !u!54 &1460738563
 Rigidbody:
   m_ObjectHideFlags: 0
