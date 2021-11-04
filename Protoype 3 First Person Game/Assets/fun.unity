@@ -337,7 +337,6 @@ MonoBehaviour:
   infiniteAmmo: 0
   bulletSpeed: 0
   shootRate: 0
-  lastShootTime: 0
 --- !u!1 &266208533
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +995,6 @@ MonoBehaviour:
   infiniteAmmo: 1
   bulletSpeed: 30
   shootRate: 0.1
-  lastShootTime: 0
 --- !u!114 &1161809808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1500,7 +1498,6 @@ MonoBehaviour:
   infiniteAmmo: 1
   bulletSpeed: 30
   shootRate: 0.1
-  lastShootTime: 0
 --- !u!114 &1460738562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1515,8 +1512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curHP: 10
   maxHP: 10
-  ScoreToGive: 0
-  moveSpeed: 0.05
+  scoreToGive: 0
+  moveSpeed: 0.08
   attackRange: 10
   yPathOffset: 1
 --- !u!54 &1460738563
@@ -1760,7 +1757,6 @@ MonoBehaviour:
   infiniteAmmo: 0
   bulletSpeed: 0
   shootRate: 0
-  lastShootTime: 0
 --- !u!65 &1647380312
 BoxCollider:
   m_ObjectHideFlags: 0

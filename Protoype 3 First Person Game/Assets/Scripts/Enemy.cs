@@ -7,7 +7,7 @@ using System.Linq;
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
-    public int curHP, maxHP, ScoreToGive;
+    public int curHP, maxHP, scoreToGive;
 
     [Header("Movement")]
     public float moveSpeed, attackRange, yPathOffset;
@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
         target = FindObjectOfType<PlayerController>().gameObject;
 
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
+
     }
 
     void UpdatePath()

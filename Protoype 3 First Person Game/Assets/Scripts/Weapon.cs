@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
     public float bulletSpeed;
 
     public float shootRate;
-    public float lastShootTime;
+    private float lastShootTime;
     private bool isPlayer;
 
 
