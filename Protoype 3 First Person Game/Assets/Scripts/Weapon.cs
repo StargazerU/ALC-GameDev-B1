@@ -19,7 +19,6 @@ public class Weapon : MonoBehaviour
     private bool isPlayer;
 
 
-
     void Awake()
     {
         //Are we attached to the player
@@ -34,9 +33,8 @@ public class Weapon : MonoBehaviour
         if(Time.time - lastShootTime >= shootRate)
         {
             if(curAmmo > 0 || infiniteAmmo == true)
-            {
                 return true;
-            }
+            
         }
 
         return false;
@@ -45,7 +43,7 @@ public class Weapon : MonoBehaviour
     {
         //Adjust shoot time and reduce ammo by one
         lastShootTime = Time.time;
-        curAmmo --;
+        curAmmo--;
         //Create projectile
         GameObject bullet = bulletPool.GetObject();
         bullet.transform.position = firepoint.position;

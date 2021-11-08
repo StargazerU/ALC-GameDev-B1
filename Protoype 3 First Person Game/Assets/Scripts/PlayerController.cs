@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Movement
+    [Header("Stats")]
+    public int curHP;
+    public int maxHP;
+    [Header("Movement")]//Movement
     public float MoveSpeed; //how fast they move
     public float jumpForce; //how high they jump
-    //Camera
+    [Header("Camera")]//Camera
     public float lookSensitivity; //Mouse speed/sensitivity
     public float maxLookx; //lowest we can look down
     public float minLookx; //highest we can look up
     private float rotx; //current x rotation of the camera
-    //Componets
+    [Header("Componets")] //Componets
     private Camera cam;
     private Rigidbody rb;
     private Weapon weapon;
@@ -26,6 +29,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         weapon = GetComponent<Weapon>();
+        //Disable Cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -76,5 +81,16 @@ public class PlayerController : MonoBehaviour
         //Applying the rotation to Camera
         cam.transform.localRotation = Quaternion.Euler(-rotx, 0, 0);
         transform.eulerAngles += Vector3.up * y;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+        if(curHP <= 0)
+            Die();
+    }
+    void Die()
+    {
+        print("You have perished!!! Game Over");
     }
 }
