@@ -8,6 +8,8 @@ public class bullet : MonoBehaviour
     public float lifetime;
     private float shootTime;
 
+    public GameObject hitParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,10 @@ public class bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //create particle effect on it then get rid of it
+        GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+        Destroy(obj, 1.0f);
+
         //Did we hit the target aka player
         if(other.CompareTag("Player"))
             other.GetComponent<PlayerController>().TakeDamage(damage);
