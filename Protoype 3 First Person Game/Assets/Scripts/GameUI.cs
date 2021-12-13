@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
-    [Header("Hud")]
-    public TextMeshUProGUI scoreText;
-    public TextMEshUProGUI ammoText;
+    [Header("HUD")]
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI ammoText;
     public Image healthBarFill;
 
     [Header("Pause Menu")]
@@ -65,6 +65,23 @@ public class GameUI : MonoBehaviour
     public void SetEndGameScreen(bool won, int score)
     {
         endGameScreen.SetActive(true);
-        endGameHeaderText.text = won == true ?
+        endGameHeaderText.text = won == true ? "You Win, GG" : "You Lose, git gud";
+        endGameHeaderText.color = won == true ? Color.blue : Color.red;
+        endGameScoreText.text = "<b>Score</b>\n" + score;
+    }
+
+    public void OnResumeButton()
+    {
+        GameManager.instance.TogglePauseGame();
+    }
+
+    public void OnRestartButton()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void OnMenuButton()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

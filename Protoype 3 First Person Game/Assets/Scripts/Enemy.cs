@@ -14,15 +14,17 @@ public class Enemy : MonoBehaviour
 
     private List<Vector3> path;
 
-    private Weapon weapon;
-
+    private Weapons weapon;
     private GameObject target;
+
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         //Gather the compnets
         weapon = GetComponent<Weapon>();
         target = FindObjectOfType<PlayerController>().gameObject;
+        rb = GetComponent<RigidBody>();
 
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
 
@@ -84,6 +86,10 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        rb.constraints = RigidbodyConstraints.None;
+        rb.AddForce(Vector3.back * 10, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * 5, ForceMode.Impulse);
+        GameManager.instance.AddScore(scoreToGive);
+        Destroy(gameObject,1);
     }
 }
