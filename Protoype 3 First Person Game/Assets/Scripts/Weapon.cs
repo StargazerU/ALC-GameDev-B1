@@ -51,6 +51,9 @@ public class Weapon : MonoBehaviour
 
         //Velocity of bullet
         bullet.GetComponent<Rigidbody>().velocity = firepoint.forward * bulletSpeed;
+
+        if(isPlayer)
+            GameUI.instance.UpdateAmmoText(curAmmo, maxAmmo);
     }
 
     // Update is called once per frame

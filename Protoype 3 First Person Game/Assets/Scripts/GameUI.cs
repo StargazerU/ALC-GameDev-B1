@@ -51,9 +51,9 @@ public class GameUI : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    public void UpdateAmmoText(int curAmmo, int MaxAmmo)
+    public void UpdateAmmoText(int curAmmo, int maxAmmo)
     {
-        ammoText.text = "Ammo: " + curAmmo + " / " + MaxAmmo;
+        ammoText.text = "Ammo: " + curAmmo + " / " + maxAmmo;
     }
 
     public void TogglePauseMenu( bool paused)

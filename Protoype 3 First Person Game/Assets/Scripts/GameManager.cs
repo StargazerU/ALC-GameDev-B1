@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
 
         //Toggle paused menu
         GameUI.instance.TogglePauseMenu(gamePaused);
+
+        //Toggle Mouse Cursur
+        curScore.lockState = gamePaused == true ? curScoreLockMode.None : CursorLockMode.Locked;
     }
 
     public void AddScore(int score)
@@ -60,6 +63,14 @@ public class GameManager : MonoBehaviour
     {
         //Set end game screen 
         GameUI.instance.SetEndGameScreen(true,curScore); 
+    }
+
+    public void LoseGame()
+    {
+        //Set the end game screen
+        GameUI.instance.GetEndgameScreen(false, curScore);
+        Time.timeScale = 0.0f;
+        gamePaused = true;
     }
 
     

@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     private List<Vector3> path;
 
-    private Weapons weapon;
+    private Weapon weapon;
     private GameObject target;
 
     private Rigidbody rb;
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         //Gather the compnets
         weapon = GetComponent<Weapon>();
         target = FindObjectOfType<PlayerController>().gameObject;
-        rb = GetComponent<RigidBody>();
+        rb = GetComponent<Rigidbody>();
 
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
 
