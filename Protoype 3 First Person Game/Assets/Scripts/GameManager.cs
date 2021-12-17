@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         GameUI.instance.TogglePauseMenu(gamePaused);
 
         //Toggle Mouse Cursur
-        curScore.lockState = gamePaused == true ? curScoreLockMode.None : CursorLockMode.Locked;
+        Cursor.lockState = gamePaused == true ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     public void AddScore(int score)
@@ -62,13 +62,13 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         //Set end game screen 
-        GameUI.instance.SetEndGameScreen(true,curScore); 
+        GameUI.instance.SetEndGameScreen(true, curScore); 
     }
 
     public void LoseGame()
     {
         //Set the end game screen
-        GameUI.instance.GetEndgameScreen(false, curScore);
+        GameUI.instance.GetEndGameScreen(false, curScore);
         Time.timeScale = 0.0f;
         gamePaused = true;
     }
