@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
 
     public int scoreToWin;
-
     public int curScore;
 
     public bool gamePaused;
