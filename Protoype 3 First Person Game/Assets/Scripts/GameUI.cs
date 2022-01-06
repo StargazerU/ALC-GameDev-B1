@@ -62,7 +62,7 @@ public class GameUI : MonoBehaviour
 
     }
 
-    public void SetEndGameScreen(bool won, int score)
+    public void GetEndGameScreen(bool won, int score)
     {
         endGameScreen.SetActive(true);
         endGameHeaderText.text = won == true ? "You Win, GG" : "You Lose, git gud";
